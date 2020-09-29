@@ -1,0 +1,47 @@
+@font-face {
+  font-family: 'Inter';
+  font-weight: 400;
+  font-style: normal;
+  unicode-range: U+000-5FF;
+  src: local('Inter'), url('/fonts/inter/inter-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 600;
+  font-style: normal;
+  unicode-range: U+000-5FF;
+  src: local('Inter'), url('/fonts/inter/inter-semibold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 700;
+  font-style: normal;
+  unicode-range: U+000-5FF;
+  src: local('Inter'), url('/fonts/inter/inter-bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 900;
+  font-style: normal;
+  unicode-range: U+000-5FF;
+  src: local('Inter'), url('/fonts/inter/inter-black.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  font-weight: 400;
+  font-style: normal;
+  unicode-range: U+000-5FF;
+  src: local('Merriweather'), url('/fonts/merriweather/merriweather-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  font-weight: 700;
+  font-style: normal;
+  unicode-range: U+000-5FF;
+  src: local('Merriweather'), url('/fonts/merriweather/merriweather-bold.woff2') format('woff2');
+}

@@ -1,0 +1,316 @@
+.markdown {
+  @apply text-lg text-gray-800;
+}
+
+.markdown a {
+  @apply text-gray-900 underline;
+}
+
+.markdown strong {
+  @apply text-gray-900 font-semibold;
+}
+
+.markdown ol {
+  counter-reset: list-counter;
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+.markdown ol > li {
+  position: relative;
+  counter-increment: list-counter;
+  padding-left: 1.75em;
+}
+
+.markdown ol > li::before {
+  content: counter(list-counter) '.';
+  position: absolute;
+  font-weight: 400;
+  color: #718096;
+}
+
+.markdown ul > li {
+  position: relative;
+  padding-left: 1.75em;
+}
+
+.markdown ul > li::before {
+  content: '';
+  position: absolute;
+  background-color: #cbd5e0;
+  border-radius: 50%;
+  width: 0.375em;
+  height: 0.375em;
+  top: calc(0.875em - 0.1875em);
+  left: 0.25em;
+}
+
+.markdown hr {
+  border-color: #e2e8f0;
+  border-top-width: 1px;
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+.markdown blockquote {
+  font-weight: 500;
+  font-style: italic;
+  color: #1a202c;
+  border-left-width: 0.25rem;
+  border-left-color: #e2e8f0;
+  quotes: '\201C''\201D''\2018''\2019';
+  margin-top: 1.6em;
+  margin-bottom: 1.6em;
+  padding-left: 1em;
+}
+
+.markdown blockquote p:first-of-type::before {
+  content: open-quote;
+}
+
+.markdown blockquote p:last-of-type::after {
+  content: close-quote;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4 {
+  @apply text-gray-900 font-bold font-sans leading-normal mt-4 mb-2;
+}
+
+.markdown h1 {
+  @apply text-4xl;
+}
+
+.markdown h2 {
+  @apply text-3xl;
+}
+
+.markdown h3 {
+  @apply text-2xl;
+}
+
+.markdown h4 {
+  @apply text-xl;
+}
+
+.markdown figure figcaption {
+  color: #718096;
+  font-size: 0.875em;
+  line-height: 1.4285714;
+  margin-top: 0.8571429em;
+}
+
+.markdown code {
+  color: #1a202c;
+  font-weight: 600;
+}
+
+.markdown code::before {
+  content: '`';
+}
+
+.markdown code::after {
+  content: '`';
+}
+
+.markdown pre {
+  color: #e2e8f0;
+  background-color: #2d3748;
+  overflow-x: auto;
+  font-size: 0.875em;
+  line-height: 1.7142857;
+  margin-top: 1.7142857em;
+  margin-bottom: 1.7142857em;
+  border-radius: 0.375rem;
+  padding-top: 0.8571429em;
+  padding-right: 1.1428571em;
+  padding-bottom: 0.8571429em;
+  padding-left: 1.1428571em;
+}
+
+.markdown pre code {
+  background-color: transparent;
+  border-width: 0;
+  border-radius: 0;
+  padding: 0;
+  font-weight: 400;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+}
+
+.markdown pre code::before {
+  content: '';
+}
+
+.markdown pre code::after {
+  content: '';
+}
+
+.markdown table {
+  width: 100%;
+  table-layout: auto;
+  text-align: left;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  font-size: 0.875em;
+  line-height: 1.7142857;
+}
+
+.markdown thead {
+  color: #1a202c;
+  font-weight: 600;
+  border-bottom-width: 1px;
+  border-bottom-color: #cbd5e0;
+}
+
+.markdown thead th {
+  vertical-align: bottom;
+  padding-right: 0.5714286em;
+  padding-bottom: 0.5714286em;
+  padding-left: 0.5714286em;
+}
+
+.markdown tbody tr {
+  border-bottom-width: 1px;
+  border-bottom-color: #e2e8f0;
+}
+
+.markdown tbody tr:last-child {
+  border-bottom-width: 0;
+}
+
+.markdown tbody td {
+  vertical-align: top;
+  padding-top: 0.5714286em;
+  padding-right: 0.5714286em;
+  padding-bottom: 0.5714286em;
+  padding-left: 0.5714286em;
+}
+
+.markdown {
+  line-height: 1.75;
+}
+
+.markdown p {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+.markdown img {
+  @apply mb-16;
+  margin-top: 2em;
+}
+
+.markdown .quiz img {
+  @apply mb-0 mt-0;
+}
+
+.markdown video {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.markdown figure {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.markdown figure > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown h2 code {
+  font-size: 0.875em;
+}
+
+.markdown h3 code {
+  font-size: 0.9em;
+}
+
+.markdown ul {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+.markdown li {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.markdown ol > li:before {
+  left: 0;
+}
+
+.markdown > ul > li p {
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+}
+
+.markdown > ul > li > *:first-child {
+  margin-top: 1.25em;
+}
+
+.markdown > ul > li > *:last-child {
+  margin-bottom: 1.25em;
+}
+
+.markdown > ol > li > *:first-child {
+  margin-top: 1.25em;
+}
+
+.markdown > ol > li > *:last-child {
+  margin-bottom: 1.25em;
+}
+
+.markdown ul ul,
+.markdown ul ol,
+.markdown ol ul,
+.markdown ol ol {
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+}
+
+.markdown hr + * {
+  margin-top: 0;
+}
+
+.markdown h2 + * {
+  margin-top: 0;
+}
+
+.markdown h3 + * {
+  margin-top: 0;
+}
+
+.markdown h4 + * {
+  margin-top: 0;
+}
+
+.markdown thead th:first-child {
+  padding-left: 0;
+}
+
+.markdown thead th:last-child {
+  padding-right: 0;
+}
+
+.markdown tbody td:first-child {
+  padding-left: 0;
+}
+
+.markdown tbody td:last-child {
+  padding-right: 0;
+}
+
+.markdown > :first-child {
+  margin-top: 0;
+}
+
+.markdown > :last-child {
+  margin-bottom: 0;
+}
