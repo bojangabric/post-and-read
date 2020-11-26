@@ -1,4 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
+const colors = require('tailwindcss/colors');
 
 module.exports = {
   purge: {
@@ -6,6 +7,10 @@ module.exports = {
   },
   theme: {
     extend: {
+      colors: {
+        teal: colors.teal,
+        gray: colors.coolGray
+      },
       animation: {
         'fade-in': 'fade-in 0.3s linear'
       },
@@ -17,9 +22,20 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans]
+      },
+      transformOrigin: {
+        0: '0%'
+      },
+      zIndex: {
+        '-1': '-1',
+        '-2': '-2'
       }
     }
   },
-  variants: {},
+  variants: {
+    extend: {
+      translate: ['group-hover']
+    }
+  },
   plugins: [require('@tailwindcss/custom-forms')]
 };
