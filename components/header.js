@@ -9,7 +9,7 @@ const Header = () => (
     </div>
     <div>
       <Link href={'/posts/create'}>
-        <a className="text-base bg-blue-600 text-white rounded py-2 px-4 hover:bg-blue-700 transition duration-150">
+        <a className="text-base bg-teal-600 text-white rounded py-2 px-4 hover:bg-teal-700 transition duration-150">
           Create a new article
         </a>
       </Link>
