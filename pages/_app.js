@@ -3,8 +3,8 @@ import { PageTransition } from 'next-page-transitions';
 import '../css/tailwind.css';
 
 const App = ({ Component, pageProps, router }) => (
-  <>
-    <div className="px-4 sm:px-6 lg:px-0 my-10 md:my-16 mx-auto max-w-5xl font-sans text-gray-900 md:text-lg">
+  <div className="bg-gray-50 text-gray-800 font-sans min-h-screen">
+    <div className="px-4 sm:px-6 lg:px-0 py-10 md:py-16 mx-auto max-w-5xl">
       <Header />
       <PageTransition timeout={200} classNames="page-transition">
         <Component key={router.route} {...pageProps} />
@@ -28,6 +28,6 @@ const App = ({ Component, pageProps, router }) => (
         transition: opacity 0ms;
       }
     `}</style>
-  </>
+  </div>
 );
 export default App;
