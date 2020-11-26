@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import ReactMarkdown from 'react-markdown';
 import { useInput } from '../../hooks/input-hook';
@@ -6,9 +6,16 @@ import axios from 'axios';
 import Router from 'next/router';
 
 const CreatePost = () => {
-  const onDrop = useCallback(acceptedFiles => {
-    // Do something with the files
-  }, []);
+  const [files, setFiles] = useState([]);
+  const onDrop = acceptedFiles => {
+    setFiles(
+      acceptedFiles.map(file =>
+        Object.assign(file, {
+          preview: URL.createObjectURL(file)
+        })
+      )
+    );
+  };
   const { getRootProps, getInputProps } = useDropzone({ onDrop });
   const { value: author, bind: bindAuthor, reset: resetAuthor } = useInput('');
   const { value: title, bind: bindTitle, reset: resetTitle } = useInput('');
@@ -17,10 +24,28 @@ const CreatePost = () => {
   const submitForm = async e => {
     e.preventDefault();
 
+    const uploadURL = 'https://api.cloudinary.com/v1_1/dzjr25qbl/image/upload';
+    const uploadPreset = 'mndlfvlo';
+    const formData = new FormData();
+
+    formData.append('file', files[0]);
+    formData.append('upload_preset', uploadPreset);
+
+    const imageUrl = await axios({
+      url: uploadURL,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      data: formData
+    }).then(res => res.data.secure_url);
+
     const res = await axios.post('/api/posts/create', {
       title: title,
       post: post,
-      author: author
+      author: author,
+      picture: imageUrl,
+      avatar: '/images/avatar' + (Math.floor(Math.random() * 9) + 1) + '.png'
     });
 
     Router.push('/posts/' + res.data.insertedId);
@@ -37,7 +62,7 @@ const CreatePost = () => {
             <div className="mt-1">
               <input
                 id="title"
-                className="form-input w-full px-2 shadow-sm"
+                className="form-input w-full px-2 shadow-sm border rounded"
                 placeholder="My Article"
                 required
                 {...bindTitle}
@@ -52,7 +77,7 @@ const CreatePost = () => {
             <div className="mt-1">
               <input
                 id="name"
-                className="form-input w-full px-2 shadow-sm"
+                className="form-input w-full px-2 shadow-sm border rounded"
                 placeholder="John Doe"
                 required
                 {...bindAuthor}
@@ -68,14 +93,14 @@ const CreatePost = () => {
           <div className="mt-1 md:flex md:space-x-16">
             <textarea
               name="post"
-              className="form-textarea shadow-sm w-full md:w-1/2"
+              className="form-textarea shadow-sm w-full md:w-1/2 border rounded"
               rows="15"
               placeholder="Write your article here..."
               required
               {...bindPost}
             ></textarea>
             <div
-              className="markdown border rounded w-full md:w-1/2 px-3 py-2 relative shadow-sm"
+              className="markdown border rounded w-full md:w-1/2 px-3 py-2 relative shadow-sm overflow-hidden bg-white"
               style={{ minHeight: '8rem' }}
             >
               <ReactMarkdown source={post} />
@@ -102,12 +127,12 @@ const CreatePost = () => {
                   d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
                 />
               </svg>
-              <span className="text-blue-600">Upload a file</span> or drag and drop
+              <span className="text-teal-600">Upload a file</span> or drag and drop
             </p>
           </div>
         </div>
 
-        <button className="w-full bg-blue-600 text-white rounded py-2 px-4 hover:bg-blue-700 transition duration-150">
+        <button className="w-full bg-teal-600 text-white rounded py-4 px-4 hover:bg-teal-700 transition font-medium text-lg">
           Post an article
         </button>
       </form>
