@@ -1,10 +1,13 @@
 import Header from '../components/header';
 import { PageTransition } from 'next-page-transitions';
+import { DefaultSeo } from 'next-seo';
+import SEO from '../next-seo.config';
 import '../css/tailwind.css';
 
 const App = ({ Component, pageProps, router }) => (
   <div className="bg-gray-50 text-gray-800 font-sans min-h-screen">
     <div className="px-4 sm:px-6 lg:px-0 py-10 md:py-16 mx-auto max-w-5xl">
+      <DefaultSeo {...SEO} />
       <Header />
       <PageTransition timeout={200} classNames="page-transition">
         <Component key={router.route} {...pageProps} />
