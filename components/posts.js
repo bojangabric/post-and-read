@@ -38,9 +38,9 @@ class Posts extends Component {
         {this.state.posts.map(post => (
           <Link key={post._id} prefetch={false} href="/posts/[id]" as={`/posts/${post._id}`}>
             <a className="flex">
-              <div className="bg-white shadow-md hover:shadow-lg flex flex-col w-full max-w-xs mx-auto sm:max-w-none rounded overflow-hidden transform hover:-translate-y-1 transition animate-fade-in">
+              <div className="bg-white shadow-md hover:shadow-lg w-full flex flex-col max-w-xs mx-auto sm:max-w-none rounded overflow-hidden transform hover:-translate-y-1 transition animate-fade-in">
                 <img className="w-full object-cover h-40" src={post.picture} />
-                <div className="mx-4 my-4 space-y-2 flex flex-col h-full">
+                <div className="mx-4 my-4 flex flex-col flex-grow">
                   <div className="text-lg font-bold leading-snug flex-grow">{post.title}</div>
                   <div className="pt-4 flex items-center space-x-2">
                     <div>
